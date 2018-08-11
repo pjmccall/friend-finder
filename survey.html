@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Friend Finder</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Take the Friend Survey!</h1>
+      <hr>
+      <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span>View Friends</button></a>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-12">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Please Fill out the survey</strong></h3>
+            <h5 class="panel-title"><strong>5 = Strongly Agree, 1 = Strongly Disagree</strong></h5>
+            <br>
+          </div>
+          <div class="panel-body">
+            <form method="POST" role="form">
+
+              <div class="form-group">
+                  <label for="name">Please start by entering your name</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
+
+              <div class="form-group">
+                <label for="travel">Are you the type of person who loves to travel?</label>
+                <select class="form-control" id="travel">
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="snow">Do you hate the snow?</label>
+                <select class="form-control" id="snow">
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="morning">Would you describe yourself as a morning person?</label>
+                <select class="form-control" id="morning">
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="sports">Do you like going to sporting events?</label>
+                <select class="form-control" id="sports">
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                </select>
+              </div>
+
+
+              <div class="form-group">
+                <label for="hike">Do you like going on hikes?</label>
+                <select class="form-control" id="hike">
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="party">Would you describe yourself as the life of the party?</label>
+                <select class="form-control" id="party">
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="games">Are you a fan of video games?</label>
+                <select class="form-control" id="games">
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="netflix">Do you like to Netlix and chill?</label>
+                <select class="form-control" id="netflix">
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                </select>
+              </div>
+
+
+              <div class="form-group">
+                <label for="coffee">Do you like coffee?</label>
+                <select class="form-control" id="coffee">
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="foodie">Would you consider yourself a "foodie"?</label>
+                <select class="form-control" id="foodie">
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                </select>
+              </div>
+
+            </form>
+            <br>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span>Find Your Friends</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    // Question: What does this code do?
+    $("#add-btn").on("click", function(event) {
+      event.preventDefault();
+      var newCharacter = {
+        name: $("#name").val().trim(),
+        role: $("#role").val().trim(),
+        age: $("#age").val().trim(),
+        forcePoints: $("#force-points").val().trim()
+      };
+
+      // Question: What does this code do??
+      $.post("/api/characters", newCharacter)
+        .then(function(data) {
+          console.log("add.html", data);
+          alert("Adding character...");
+        });
+    });
+  </script>
+
+</body>
+</html>
