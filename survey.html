@@ -127,7 +127,7 @@
 
               <div class="form-group">
                 <label for="coffee">Do you like coffee?</label>
-                <select class="form-control" id="coffee">
+                <select class="form-control" id="coffee" type="number">
                     <option>5</option>
                     <option>4</option>
                     <option>3</option>
@@ -138,7 +138,7 @@
 
               <div class="form-group">
                 <label for="foodie">Would you consider yourself a "foodie"?</label>
-                <select class="form-control" id="foodie">
+                <select class="form-control" id="foodie" type="number">
                     <option>5</option>
                     <option>4</option>
                     <option>3</option>
@@ -163,19 +163,29 @@
     // Question: What does this code do?
     $("#add-btn").on("click", function(event) {
       event.preventDefault();
-      var newCharacter = {
+      var friendApp = {
         name: $("#name").val().trim(),
-        role: $("#role").val().trim(),
-        age: $("#age").val().trim(),
-        forcePoints: $("#force-points").val().trim()
+        score: [
+          $("#travel").val().trim(),
+          $("#snow").val().trim(),
+          $("#morning").val().trim(),
+          $("#sports").val().trim(),
+          $("#hike").val().trim(),
+          $("#party").val().trim(),
+          $("#games").val().trim(),
+          $("#netflix").val().trim(),
+          $("#coffee").val().trim(),
+          $("#foodie").val().trim(),
+      ]
       };
-
+  
       // Question: What does this code do??
-      $.post("/api/characters", newCharacter)
+      $.post("/api/survey", friendApp)
         .then(function(data) {
-          console.log("add.html", data);
-          alert("Adding character...");
+          console.log("friends.js", data);
         });
+        
+        alert("Application Submitted!");
     });
   </script>
 
