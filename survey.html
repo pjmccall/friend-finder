@@ -16,7 +16,7 @@
     <div class="jumbotron">
       <h1>Take the Friend Survey!</h1>
       <hr>
-      <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span>View Friends</button></a>
+      <a href="/api/friends"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span>View Friends Database</button></a>
     </div>
     <div class="row">
 
@@ -160,7 +160,7 @@
   </div>
 
   <script type="text/javascript">
-    // Question: What does this code do?
+    // Pushing friend data to api
     $("#add-btn").on("click", function(event) {
       event.preventDefault();
       var friendApp = {
@@ -179,8 +179,8 @@
       ]
       };
   
-      // Question: What does this code do??
-      $.post("/api/survey", friendApp)
+      // Question: Post data to friends.js
+      $.post("/api/friends", friendApp)
         .then(function(data) {
           console.log("friends.js", data);
         });

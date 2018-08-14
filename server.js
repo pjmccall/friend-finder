@@ -16,10 +16,53 @@ app.use(bodyParser.json());
 // Setting variable for reservation submissions
 var friendApp = [
     {
-      name:" ",
-      scores:[]
-    }
-    
+      name:"John Doe",
+      scores:[
+        "5",
+        "1",
+        "4",
+        "4",
+        "5",
+        "1",
+        "2",
+        "5",
+        "4",
+        "1"
+      ]
+  
+    },
+    {
+      name:"Jack Black",
+      scores:[
+        "5",
+        "4",
+        "4",
+        "1",
+        "4",
+        "1",
+        "5",
+        "5",
+        "4",
+        "3"
+      ]
+  
+    },
+    {
+      name:"Sarah Jessica",
+      scores:[
+        "5",
+        "5",
+        "3",
+        "3",
+        "1",
+        "1",
+        "5",
+        "4",
+        "4",
+        "1"
+      ]
+  
+    }   
 ];
 
 // Routing the user to our 3 html pages
@@ -33,8 +76,8 @@ app.get("/", function(req, res) {
   });
 
 
-// Setting up a get for reservations
-app.get("/api/survey", function(req, res) {
+// Setting up a get for friend surveys  
+app.get("/api/friends", function(req, res) {
   
     console.log(friendApp);
   
@@ -42,8 +85,8 @@ app.get("/api/survey", function(req, res) {
   });
 
 
-// Setting up a post for reservations  
-app.post("/api/survey", function(req, res) {
+// Setting up a post for friend surveys  
+app.post("/api/friends", function(req, res) {
   friendApp.push(req.body);
 });
 
